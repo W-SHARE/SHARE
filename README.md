@@ -1,24 +1,11 @@
-# README
+# SHARE_appについて(2022/2/24)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2021年11月22日に発足したW-SHARE(当時社名:Tupple-lab)は、メンバーの知識こそは0でしたが、全てにおいてのモチベーションがありました。
 
-Things you may want to cover:
+そんなモチベーション集団(3人)がWebアプリ開発の勉強を開始して２ヶ月、ついに最初のアプリケーションの開発に着手しました。
 
-* Ruby version
+その記念すべき初アプリケーションがこのSHARE_appです。
 
-* System dependencies
+使用フレームワークは、Ruby on Rails。
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+発足して３ヶ月が経ちますが、未だモチベーションが下がることはありません。これからのW-SHAREに乞うご期待！
