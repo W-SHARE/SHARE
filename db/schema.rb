@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_15_130242) do
+ActiveRecord::Schema.define(version: 2022_03_22_074732) do
 
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -79,6 +79,13 @@ ActiveRecord::Schema.define(version: 2022_03_15_130242) do
     t.integer "core_time_end_hour"
     t.integer "core_time_end_min"
     t.text "free_review"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
