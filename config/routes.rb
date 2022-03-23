@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post "guest" => "users#guest"
   post "logout" => "users#logout"
   get "login" => "users#login_form"
   post "login" => "users#login"
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   get "courses/index" => "courses#index"
   get "labs/index" => "labs#index"
   get 'requests/new'
-  get '/' => "home#top"
+  root "home#top"
   get "about" => "home#about"
   get 'courses/:course_id' => "courses#show"
   get 'labs/:lab_id' => "labs#show"
