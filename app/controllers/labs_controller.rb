@@ -1,4 +1,5 @@
 class LabsController < ApplicationController
+  before_action :authenticate_user
 
   #　各研究室のページを表示するための関数
   def show

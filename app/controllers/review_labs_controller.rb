@@ -1,4 +1,5 @@
 class ReviewLabsController < ApplicationController
+  before_action :authenticate_user
 
   #研究室のレビューを入力するページを表示するための関数
   def new
