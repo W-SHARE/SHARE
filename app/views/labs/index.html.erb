@@ -1,6 +1,38 @@
-<!--#　全研究室を表示させる処理-->
-<div>
-    <%  @labs.each do |lab| %>
-        <%= link_to(lab.name,"/labs/#{lab.id}") %>
-    <% end %>
-</div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="・・・">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>研究室一覧</title>
+    <link rel="stylesheet" href="coursrs.css">
+    <script src="https://kit.fontawesome.com/701f54efca.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+</head>
+<body>
+    <div class="title">
+        COURSE LIST
+        <br>
+        <span name="subtitle">
+            研究室一覧
+        </span>
+    </div>
+    <div class="main-container-index">
+        <%  @labs.each do |lab| %>
+            <div class="course-information">
+                <div class="course-description">
+                    <img src=<%= "../../assets/#{lab.image_name}"%> alt=<%= lab.image_name %>>
+                    <p name="course-name">
+                        <%= link_to(lab.name,"/labs/#{lab.id}") %> 
+                    </p>
+                    <span name="course-evaluation">
+                        <i class="fa-regular fa-comments"></i> <%= ReviewLab.where(lab_id: lab.id).count%>
+                    </span>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</body>
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_15_130242) do
+ActiveRecord::Schema.define(version: 2022_04_03_112536) do
 
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_03_15_130242) do
     t.integer "ratio_attendance"
     t.string "necessity_of_attendance"
     t.integer "number_of_reviews"
+    t.string "image_name"
   end
 
   create_table "labs", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_03_15_130242) do
     t.float "difficulity"
     t.float "fun"
     t.integer "number_of_reviews"
+    t.string "image_name"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -74,11 +76,9 @@ ActiveRecord::Schema.define(version: 2022_03_15_130242) do
     t.integer "lab_id"
     t.integer "difficulity"
     t.integer "fun"
-    t.integer "core_time_start_hour"
-    t.integer "core_time_start_min"
-    t.integer "core_time_end_hour"
-    t.integer "core_time_end_min"
     t.text "free_review"
+    t.string "core_time_start"
+    t.string "core_time_end"
   end
 
 end

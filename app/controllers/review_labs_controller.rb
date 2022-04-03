@@ -16,10 +16,8 @@ class ReviewLabsController < ApplicationController
       lab_id: params[:lab_id],
       difficulity: params[:difficulity],
       fun: params[:fun],
-      core_time_start_hour: params[:core_time_start_hour],
-      core_time_start_min: params[:core_time_start_min],
-      core_time_end_hour: params[:core_time_end_hour],
-      core_time_end_min: params[:core_time_end_min],
+      core_time_start: params[:core_time_start],
+      core_time_end: params[:core_time_end],
       free_review: params[:free_review]
     )
 

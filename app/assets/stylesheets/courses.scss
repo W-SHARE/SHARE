@@ -1,3 +1,32 @@
 // Place all the styles related to the courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.title{
+    padding: 54px 0px 15.5px 160px;
+    font-weight: 800;
+    font-size: 48px;
+    color: black;
+    border-bottom: solid 1px;
+    border-color: gray;
+}
+span[name="subtitle"]{
+    font-weight: 700;
+    font-size: 24px;
+}
+.main-container-index{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    justify-content: left;
+    padding: 27.5px 160px 0 160px;
+}
+.course-information{
+    width: 25%;
+    text-align: center;
+    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+}
+.course-description{
+    padding: 17px 0 32px 0;
+    font-weight: 400;
+    font-size: 24px;
+}
