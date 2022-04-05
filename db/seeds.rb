@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "csv"
+
+CSV.foreach('db/course.csv') do |info|
+    Course.create(:name => info[0],
+        :class_period_day_of_week => info[1],
+        :class_period_timetable => info[2])
+end
+
 Lab.create!(
     name: "吉田研究室",
     major: "電子エレクトロニクス",
@@ -23,27 +31,4 @@ Lab.create!(
     core_time_end_hour: 15,
     core_time_end_min: 00,
     professor: "田中総"
-)
-
-Course.create!(
-    name: "量子力学A",
-    classification: "必修",
-    class_period_day_of_week: "火",
-    class_period_timetable: 2,
-    credit: 2,
-    professor: "山中由也",
-    ratio_exam: 7,
-    ratio_attendance: 3,
-    necessity_of_attendance: "必要"
-)
-Course.create!(
-    name: "電磁気学A",
-    classification: "必修",
-    class_period_day_of_week: "木",
-    class_period_timetable: 3,
-    credit: 2,
-    professor: "川西哲也",
-    ratio_exam: 10,
-    ratio_attendance: 0,
-    necessity_of_attendance: "不要"
 )

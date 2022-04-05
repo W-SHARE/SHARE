@@ -13,3 +13,88 @@
  *= require_tree .
  *= require_self
  */
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p,
+form, input, div {
+    margin: 0;
+    padding: 0;
+}
+.use_icon {
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 3;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    font-size: 20px;
+}    
+a{
+    text-decoration: none;
+}
+/**ここから本文のCSS*/
+.header{
+    background-color:rgba(174,221,236,0.61);
+    height:60px;
+}
+.header-logo{
+    width:116px;
+    height:60px;
+    padding-left: 50px;
+}
+.header-logo:hover{
+    transform: scale(1.2,1.2);/**ホバー時に画像を拡大する。縦横それぞれ1.2倍という意味*/
+    overflow: hidden;/**拡大したときに枠からはみ出た分を非表示にするコード*/
+    transition-duration: 0.3s;/*拡大されるのにかかる時間を設定している*/
+}
+.header-list{
+    float:right;
+    padding-right: 150px;
+    text-align:center;/**文字をブロックの横方向の中央に配置するためのコード*/
+    vertical-align: middle;/**文字を縦方向の中央に配置するためのコード*/
+}
+.hlist{
+    line-height:60px;
+    margin-left:80px;
+    width:130px;
+    height:30px;
+    font-family: 'Noto Sans JP',serif;/**フォントは一つだとブラウザが対応していない場合に表示されなくなってしまうから最低でも2つは必要。
+    serif(明朝体)かsans-serif(ゴシック体)を最後に入れるべき！！*/
+    font-weight: bold;
+}
+.hlist:hover{
+    opacity:0.7;
+}
+
+.Followus{
+    background-color:rgba(71,209,239,0.7);
+    height:130px;
+    clear:both;
+    text-align: center;
+}
+.title3{
+    padding-top: 15px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.followicon_container{/**中身のコンテンツを等間隔で配置するためのコードとそのためのdiv*/
+    display: flex; /**これを書くことでこのdivの中身をflex要素にする*/
+    justify-content: space-evenly;  /**flex要素を等間隔に並べるコード*/
+    /**このコンテナはfollowiconをflexにするためにある。これによりfollowiconが中央に配置される*/
+}
+.followicon{/**これはアイコンたちを等間隔に並べるためのdiv*/
+    display: flex;
+    justify-content: space-evenly;/**これはアイコンたちを等間隔に並べている*/
+    width:36%;/**これによりアイコン同士の間隔を調節している*/
+    /**text-align: center;*/ /**これがいらない理由はfollowicon_containerがあるから！！*/
+}
+.follow{
+    font-size: 24px;
+    color: black;
+}
+
+.flash {
+    font-size: larger;
+    color: red;
+}

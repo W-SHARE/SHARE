@@ -1,4 +1,5 @@
 class ReviewCoursesController < ApplicationController
+  before_action :authenticate_user
 
   #対応授業をレビューする画面を表示するための関数
     def new

@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_action :authenticate_user
 
 # 各授業ページを表示するための関数  
   def show
