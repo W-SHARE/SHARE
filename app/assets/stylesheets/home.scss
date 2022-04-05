@@ -1,9 +1,10 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.title{
-    color:rgba(119, 119, 243, 0.952);
-    font-size: 36px;
+.title-top{
+    color: white;/*文字は白に*/
+    opacity:0.8;
+    font-size: 45px;
     text-shadow:
     1px 0 0 rgb(33, 59, 209),
     0 1px 0 rgb(33, 59, 209),
@@ -13,13 +14,6 @@
 .body1 {/*親div*/
     position: relative;/*相対配置*/
 }
-.body1 p {
-    position: absolute;/*絶対配置*/
-    color: white;/*文字は白に*/
-    opacity:0.8;
-    top: 120px;
-    left: 80px;
-} 
 .body1 img {
     width: 100%;
     height: 700px;
@@ -28,24 +22,14 @@
 .btn {
     border: 2px solid #4797af;
     color:white;
-    text-align: center;
-    vertical-align: middle;
+    //text-align: center;
+    //vertical-align: middle;
     padding:10px 20px;
     border-radius: 30px;
     background-color: rgba(66, 157, 180,0.7);
     width:150px;
-    font-size: 16px;
+    //font-size: 16px;
     font-family:'Noto Sans JP',serif ;
-}
-.btn1{
-    position: absolute;
-    top:260px;
-    left:80px;
-}
-.btn2{
-    position: absolute;
-    top:260px;
-    left:290px;
 }
 .btn:hover{
     opacity:0.8;
@@ -56,7 +40,7 @@
     justify-content: center;/**flexitemを中央に寄せる*/
     position: absolute;/**これのせいでこの下のブロックが回り込んでしまう。absoluteは高さがなくなるのだ！*/
     top:720px;
-    
+    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
     /**overflow: auto;*/
 
 }
@@ -102,7 +86,8 @@
 
 .second-container{
     clear:right;
-    padding-top: 310px;;
+    padding-top: 310px;
+    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
 }
 .robot{
     width: 45%;
@@ -115,9 +100,6 @@
     left:100px;
     font-size: 40px;
     color:black;
-    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 
-    'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-    
 }
 .content2{
     float:left;
@@ -127,4 +109,19 @@
     top:100px;
     left:180px;
     font-weight:bold;
+}
+
+/*西ノ原 top.html 用*/
+.img-description{
+    position: absolute;/*絶対配置*/
+    top: 0px;
+    left: 0px;
+    padding: 100px 0 0 20px;
+    text-align: center;
+    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+}
+.img-link-container{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
 }

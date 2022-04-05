@@ -1,62 +1,109 @@
-<!--#授業情報を表示させるための処理-->
-<div>
-    講義名：
-    <%= @course.name %>
-    <br>
-    科目区分：
-    <%= @course.classification %>
-    <br>
-    授業曜日・時間
-    <%= @course.class_period_day_of_week %>曜日
-    <%= @course.class_period_timetable %>時限目
-    <br>
-    単位数：
-    <%= @course.credit %>
-    <br>
-    教授：
-    <%= @course.professor %>
-    <br>
-    授業難易度：
-    <%= @average_of_difficulity.round(2)  %>
-    <br>
-    授業の面白さ：
-    <%= @average_of_fun.round(2) %>
-    <br>
-    単位取得率：
-    <!--#分母が0でないときは値を表示させる-->
-    <% if @pass_rate != -1 %>
-        <%= @pass_rate.round(2) %> %
-    <!--#分母が0の時はNo Data都表示させる-->
-    <% else %>   
-        No Data
-    <% end %>
-    <br>
-    成績割合：
-    試験<%= @course.ratio_exam %>：出席<%= @course.ratio_attendance %>
-    <br>
-    出席の必要性：
-    <%= @course.necessity_of_attendance %>
-    <br>
-    レビュー数：
-    <%= @number_of_reviews %>
-    
-<div>
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="・・・">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>お問い合わせ</title>
+    <script src="https://kit.fontawesome.com/701f54efca.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+    <link rel="stylesheet" href="detail.css">
+</header>
 
-<!--#レビューページに遷移するためのリンク-->
-<div>
-    <%= link_to("#{@course.name}をレビュー", "/review_courses/#{params[:course_id]}/new") %>
+<div class="main-container-detail">
+    <img name="detail-image" src="../../assets/kairoriron.jpeg" alt="">
+    <div class="description-container-detail">
+        <div class="description-title-detail">
+            <span name="title-name"><%= @course.name %></span>
+            <img name="professor-img" src="../../assets/hiroshi-kawarada.jpg" alt="">
+        </div>
+        <div class="description-detail">
+            <p name="description-title">授業情報</p>
+            <div class="each-description-detail">
+                <p>講義名</p>
+                <p><%= @course.name %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>科目区分</p>
+                <p><%= @course.classification %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>授業日時</p>
+                <p><%= @course.class_period_day_of_week %>曜日<%= @course.class_period_timetable %>時限目</p>
+            </div>
+            <div class="each-description-detail">
+                <p>単位</p>
+                <p><%= @course.credit %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>教授</p>
+                <p><%= @course.professor %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>授業難易度</p>
+                <p><%= @average_of_difficulity.round(2)  %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>授業の面白さ</p>
+                <p><%= @average_of_fun.round(2) %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>単位取得率</p>
+                <p>
+                    <!--#分母が0でないときは値を表示させる-->
+                    <% if @pass_rate != -1 %>
+                        <%= @pass_rate.round(2) %> ％
+                    <!--#分母が0の時はNo Data都表示させる-->
+                    <% else %>   
+                        No Data
+                <% end %>
+                </p>
+            </div>
+            <div class="each-description-detail">
+                <p>評価の割合</p>
+                <p>試験<%= @course.ratio_exam %>％, 出席<%= @course.ratio_attendance %>％</p>
+            </div>
+            <div class="each-description-detail">
+                <p>出席の必要性</p>
+                <p><%= @course.necessity_of_attendance %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>レビュー数</p>
+                <p><%= @number_of_reviews %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>使用教科書</p>
+                <p>電子回路入門</p>
+            </div>
+        </div>
+    </div>
 </div>
-
-<!--#対応する授業に関する全レビューを表示-->
-<div>
+<div class="review-button-detail">
+    <%= link_to("#{@course.name}をレビュー", "/review_courses/#{params[:course_id]}/new", {class: ["btn"]}) %>
+</div>
+<div class="review-container-detail">
+    <p class="main-review-title-detail">口コミ一覧</p>
     <%  @reviews.each do |review| %>
-        ユーザー名：<%=  review.user_name %>
-        <br>
-        授業難易度：<%= review.difficulity %>
-        <br>
-        面白さ：<%= review.fun %>
-        <br>
-        レビュー：<%= review.free_review %>
-        <br>
+        <div class="review-detail">
+            <div class="review-title-detail">
+                <i class="fa-solid fa-circle-user"></i>
+                <span><%=  review.user_name %></span>
+                <span>★★☆☆☆</span>
+            </div>
+            <div class="review-description-detail">
+                <div class="each-review-detail">
+                    <p>授業の難しさ</p>
+                    <p><%= review.difficulity %></p>
+                </div>
+                <div class="each-review-detail">
+                    <p>授業の面白さ</p>
+                    <p><%= review.fun %></p>
+                </div>
+                <div class="each-review-detail">
+                    <p name="free-review"><%= review.free_review %></p>
+                </div>
+            </div>
+        </div>
     <% end %>
 </div>

@@ -1,15 +1,60 @@
-<% @user.errors.full_messages.each do |message| %>
-    <%= message %>
-<% end %>
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="・・・">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>お問い合わせ</title>
+    <script src="https://kit.fontawesome.com/701f54efca.js" crossorigin="anonymous"></script>
+</header>
 
-<h2>新規登録</h2>
+<body>
+    <div class="title">
+        <div name="title-container">
+            SIGUNUP
+            <br>
+            <span name="subtitle">
+                新規登録
+            </span>
+        </div>
+    </div>
 
-<%=form_tag("/users/create") do%>
-    <p>ユーザー名</p>
-    <input name="name" value="<%=@user.name%>">
-    <p>メールアドレス</p>
-    <input name="email" value="<%=@user.email%>">
-    <p>パスワード</p>
-    <input name="password" type="password" value="<%= @user.password %>">
-    <input type="submit" value="新規登録">
-<%end%>
+    <div class="main-container">
+        <div class="form-container">
+                <% @user.errors.full_messages.each do |message| %>
+                    <div class="error-message">
+                        <%= message %>
+                    </div>
+                <% end %>
+            <%=form_tag("/users/create") do%>
+                <div class="form-content-container">
+                    <div class="form-content" name="user-name">
+                        <label for="user-name">
+                            <i class="fa-solid fa-user"></i>
+                            ユーザーネーム
+                        </label>
+                        <input type="text" id="user-name" name="name" placeholder="入力例：早稲田花子" style="padding: 10px;" value=<%= @user.name %>>
+                    </div>
+                    <div class="form-content" name="email">
+                        <label for="email">
+                            <i class="fa-solid fa-envelope"></i>
+                            メールアドレス
+                        </label>
+                        <input type="text" id="email" name="email" placeholder="入力例：wasedahanako@gmail.com" style="padding: 10px;" value=<%= @user.email %>>
+                    </div>
+                    <div class="form-content" name="email">
+                        <label for="password">
+                            <i class="fa-solid fa-key"></i>
+                            パスワード
+                        </label>
+                        <input type="password" id="password" name="password" placeholder="入力例：●●●●●●●●●●●●●●" style="padding: 10px;" value=<%= @user.password %>>
+                    </div>
+                    <div class="form-content" name="button">
+                        <input name="submit-button" type="submit" value="&#xf1d8; 新規登録">
+                    </div> 
+                </div>
+            <% end %>
+        </div>
+    </div>
+</body>

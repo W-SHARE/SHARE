@@ -1,12 +1,60 @@
-<h2>ログイン</h2>
-<% if @error_message %>
-    <%= @error_message %>
-<% end %>
-<%= form_tag("/login") do%>
-    <p>メールアドレス</p>
-    <input name="email" value="<%= @email %>">
-    <p>パスワード</p>
-    <input type="password" name="password" value="<%= @password %>">
-    <input type="submit" value="ログイン">
-<% end %>
-<%= link_to("ゲストログイン", "/guest", {method:"post"})%>
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="・・・">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>お問い合わせ</title>
+    <script src="https://kit.fontawesome.com/701f54efca.js" crossorigin="anonymous"></script>
+</header>
+
+<body>
+    <div class="title">
+        <div name="title-container">
+            LOGIN
+            <br>
+            <span name="subtitle">
+                ログイン
+            </span>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="form-container">
+            <% if @error_message%>
+                <div class="error-message">
+                    <p name="main-error-massage">
+                        <%= @error_message %>
+                    </p>
+                    <div class="guest-login">
+                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <%= link_to("新規登録する", "/signup")%>
+                    </div>
+                </div>
+            <% end%>
+            <div class="form-content-container">
+            <%= form_tag("/login") do%>
+                <div class="form-content" name="email">
+                    <label for="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    メールアドレス
+                </label>
+                    <input type="text" id="email" name="email" placeholder="入力例：wasedahanako@gmail.com" style="padding: 10px;" value=<%= @email %>>
+                </div>
+                <div class="form-content" name="password">
+                    <label for="password">
+                    <i class="fa-solid fa-key"></i>
+                    パスワード
+                </label>
+                    <input type="password" id="password" name="password" placeholder="入力例：●●●●●●●●●●●●●●" style="padding: 10px;" value=<%= @password %>>
+                </div>
+                <div class="form-content" name="button">
+                    <input name="submit-button" type="submit" value="&#xf1d8; ログイン">
+                </div> 
+            <% end %>
+            </div>
+        </div>
+    </div>
+</body>
+

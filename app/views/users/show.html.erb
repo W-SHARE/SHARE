@@ -1,6 +1,52 @@
-<h2>アカウント詳細</h2>
-<h3><%= @user.name%></h3>
-<p><%= @user.email%></p>
-<% if @user.id == @current_user.id %>
-    <%=link_to("編集", "/users/#{@user.id}/edit")%>
-<% end %>
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="・・・">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>お問い合わせ</title>
+    <script src="https://kit.fontawesome.com/701f54efca.js" crossorigin="anonymous"></script>
+</header>
+
+<body>
+    <div class="title">
+        <div name="title-container">
+            ACCOUNT
+            <br>
+            <span name="subtitle">
+                アカウント詳細
+            </span>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="form-container">
+            <div class="form-content-container">
+                <div class="form-content" name="email">
+                    <p>
+                        <i class="fa-solid fa-user"></i>
+                        ユーザー名
+                    </p>
+                    <p>
+                    <%= @user.name%>
+                    </p>
+                </div>
+                <div class="form-content" name="email">
+                    <p>
+                        <i class="fa-solid fa-envelope"></i>
+                        メールアドレス
+                    </p>
+                    <p>
+                        <%= @user.email%>
+                    </p>
+                </div>
+                <div class="edit-button">
+                    <% if @user.id == @current_user.id %>
+                        <%=link_to("編集", "/users/#{@user.id}/edit", {class: ["btn", "btn1"]})%>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

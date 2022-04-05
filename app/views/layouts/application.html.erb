@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>SHAREapp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,20 +10,18 @@
     <link href="https://use.fontawesome.com/releases/v6.6.1/css/all.css" rel="stylesheet">
   </head>
 
-  <body>
-    
+  <body> 
     <!--ヘッダーのリンク-->
     <div class="header">
-    <img class="header-logo" src="assets/Wshare_logopic.png">
-      <div class="header-list">
+      <img class="header-logo" src="../../assets/Wshare_logopic.png">
         <%= link_to("トップページ", "/", {class: "hlist"}) %>
-        <%= link_to("W-SHAREとは？", "/about", {class: "hlist"}) %>
+        <!-- <%= link_to("W-SHAREとは？", "/about", {class: "hlist"}) %> -->
         <%= link_to("ご要望", "/requests/new", {class: "hlist"}) %>
         <% if @current_user %>
           <!-- ログインしている状態 -->
             <%= link_to("授業一覧", "/courses/index", {class: "hlist"}) %>
             <%= link_to("研究室一覧", "/labs/index", {class: "hlist"} )%>
-            <%= link_to("ユーザー一覧", "/users/index", {class: "hlist"} )%>
+            <!-- <%= link_to("ユーザー一覧", "/users/index", {class: "hlist"} )%> -->
             <%= link_to("ログアウト", "/logout", {method:"post", class: "hlist"}) %>
             <%= link_to(@current_user.name, "/users/#{@current_user.id}", {class: "hlist"} )%>
         <% else %>
@@ -35,18 +32,17 @@
         <% end %>
       </div>
     </div>
-
     <!--ヘッダーの下、コンテンツの上に一時的ナメッセージを表示-->
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </div>
     <% end %>
-
     <%= yield %>
-    
     <div class="Followus">
-    <p class="title3">Follow us!!</p>
+      <p class="title3">
+        Follow us!!
+      </p>
       <div class="followicon_container">
         <div class="followicon">
           <a href="https://www.twitter.com/waseda_share"><i class="follow use_icon fa-brands fa-twitter"></i></a>

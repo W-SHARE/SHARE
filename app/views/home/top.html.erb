@@ -1,40 +1,64 @@
-<div class="main-container">
+<div class="main-container-top">
     <div class="body1">
-    <img src="assets/Hands.jpg">
-    <p class="title">Let’s share our information<br>
-        And have a great campus life !!!</p>
-    <%= link_to("授業情報を見る", "/courses/index", {class: ["btn", "btn1"]}) %>
-    <%= link_to("レビューを投稿する", "/courses/index", {class: ["btn", "btn2"]}) %> 
+        <img src="../../assets/Hands.jpg">
+        <div class="img-description">
+            <p class="title-top">
+                Let’s share our information
+            <br>
+                And have a great campus life !!!
+            </p>
+            <div class="img-link-container">
+                <%= link_to("授業情報を見る", "/courses/index", {class: ["btn", "btn1"]}) %>
+                <%= link_to("レビューを投稿する", "/courses/index", {class: ["btn", "btn2"]}) %> 
+            </div>
+        </div>
     </div>
-
     <div class="big_container">
-    <div class="small_container container1">
-        <div class="imagecenter"> <!--imageを中央に配置するにはその親要素にtext-align:centerをさせないといけないからこのdivを作った。-->
-        <img class="imageheight" src="assets/アセット 1.png">
+        <div class="small_container container1">
+            <div class="imagecenter"> <!--imageを中央に配置するにはその親要素にtext-align:centerをさせないといけないからこのdivを作った。-->
+                <img class="imageheight" src="../../assets/asset1.png" >
+            </div>
+            <p class="subtitle">
+                <a href="/about">
+                    W-SHAREとは
+                </a>
+            </p>
+            <p class="content">
+                W-SHAREとは早稲田理系学生用の情報共有プラットフォームです。授業や研究室などの情報を共有しより充実した大学生活を送ることを目的としております。
+            </p>
         </div>
-        <p class="subtitle"><a href="">W-SHAREとは</a></p>
-        <p class="content">W-SHAREとは早稲田理系学生用の情報共有プラットフォームです。授業や研究室などの情報を共有しより充実した大学生活を送ることを目的としております。</p>
-    </div>
-    <div class="small_container container2">
-        <div class="imagecenter">
-        <img class="imageheight" src="assets/アセット 2.png">
+        <div class="small_container container2">
+            <div class="imagecenter">
+                <img class="imageheight" src="../../assets/asset2.png">
+            </div>
+            <p class="subtitle">
+                <a href="/courses/index">
+                    授業一覧ページ
+                </a>
+            </p>
+            <p class="content">
+                授業一覧ページに移動することができます。ユーザーが投稿した授業レビューなどを確認することができます。投稿をご覧いただくとともにお持ちの情報があれば投稿もお願いいたします。
+            </p>
         </div>
-        <p class="subtitle"><a href="">授業一覧ページ</a></p>
-        <p class="content">授業一覧ページに移動することができます。ユーザーが投稿した授業レビューなどを確認することができます。投稿をご覧いただくとともにお持ちの情報があれば投稿もお願いいたします。</p>
-    </div>
-    <div class="small_container container3">
-        <div class="imagecenter">
-        <img class="imageheight" src="assets/アセット 3.png">
+        <div class="small_container container3">
+            <div class="imagecenter">
+            <img class="imageheight" src="../../assets/asset3.png">
+            </div>
+            <p class="subtitle"><a href="/requests/new">ご要望・お問い合わせ</a></p>
+            <p class="content">使い方などのご質問はお気軽にお申し付けください。またW-SHAREをよりよいサービスにしていくため、お使いいただいている中で感じた改善点などもお気軽にお知らせください。</p>
         </div>
-        <p class="subtitle"><a href="">ご要望・お問い合わせ</a></p>
-        <p class="content">使い方などのご質問はお気軽にお申し付けください。またW-SHAREをよりよいサービスにしていくため、お使いいただいている中で感じた改善点などもお気軽にお知らせください。</p>
     </div>
+    <div class="backcolor">
     </div>
-    <div class="backcolor"></div>
     <div class="second-container">
-    <img class="robot" src="assets/robot_transpa.png">
-    <p class="title2">W-SHAREとは</p>
-    <p class="content2">W-SHAREグループは早稲田大学西早稲田キャンパスを活動拠点とする新進気鋭のエンジニアグループです。 
-        理系学生の履修科目についての情報、研究室の現状、
-        キャンパス内の各施設の情報など皆様がよりよい学生生活を過ごせるための情報を提供していきます。</p>
+        <img class="robot" src="assets/robot_transpa.png">
+        <p class="title2">
+            W-SHAREとは
+        </p>
+        <p class="content2">
+            W-SHAREグループは早稲田大学西早稲田キャンパスを活動拠点とする新進気鋭のエンジニアグループです。 
+            理系学生の履修科目についての情報、研究室の現状、
+            キャンパス内の各施設の情報など皆様がよりよい学生生活を過ごせるための情報を提供していきます。
+        </p>
+    </div>
 </div>

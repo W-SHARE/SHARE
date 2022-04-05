@@ -22,11 +22,13 @@
     <%= form_tag("/review_courses/#{params[:course_id]}/create") do %>
         <div class="main-container">
             <div class="form-container">
-            <% @review.errors.full_messages.each do |message| %>
-                <div class="error-message">
-                    <%= message %>
+                <div class="error-message-container">
+                    <% @review.errors.full_messages.each do |message| %>
+                        <div class="error-message">
+                            <%= message %>
+                        </div>
+                    <% end %>
                 </div>
-            <% end %>
                 <div class="form-content" name="username">
                     <label for="username">お名前</label>
                     <input type="text" id="username" name="user_name" placeholder="&#xf007; 入力例：早稲田花子" style="padding: 10px;" style="padding: 10px;" value=<%= @review.user_name %>>
