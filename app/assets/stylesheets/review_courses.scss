@@ -1,3 +1,79 @@
 // Place all the styles related to the review_courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title{
+    text-align: right;
+    font-weight: 800;
+    font-size: 48px;
+    padding-right: 160px;
+    border-bottom: solid 1px;
+    border-color: grey;
+}
+.title span{
+    font-weight: 700;
+    font-size: 24px;
+}
+.description{
+    width: 45%;
+    padding: 0 30px 0 30px;
+}
+.form-container{
+    width: 100%;
+    padding: 70px 160px 0 160px;
+}
+
+.main-container{
+    display: flex;
+}
+.form-content{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}
+input{
+    width: 50%;
+    background-color: ghostwhite;
+    border: solid 1px;
+    font-family: "Font Awesome 5 free";
+}
+textarea{
+    width: 50%;
+}
+.form-content[name="button"]{
+    display: flex;
+    justify-content: center;
+}
+input[name="submit-button"]{
+    width: 150px;
+    height: 45px;
+    background: #95ECFFB0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+label{
+    font-weight: 400;
+    font-size: 24px;
+}
+.error-message{
+    padding: 30px 0 30px 0;
+}
+.button{
+    display: inline-block;
+}
+.radio{
+    width: 50%;
+}
+textarea{
+    background: ghostwhite;
+    padding: 10px;
+    border: solid 1px;
+}
+.core-time-container{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+.core-time-container p{
+    margin: 0 30px 0 30px;
+}

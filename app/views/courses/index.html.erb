@@ -1,6 +1,36 @@
-<!--#全授業名を表示させるための処理-->
-<div>
-    <%  @courses.each do |course| %>
-        <%= link_to(course.name,"/courses/#{course.id}") %>
-    <% end %>
-</div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="・・・">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>授業一覧</title>
+    <link rel="stylesheet" href="coursrs.css">
+    <script src="https://kit.fontawesome.com/701f54efca.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+</head>
+<body>
+    <div class="title">
+        COURSE LIST
+        <br>
+        <span name="subtitle">
+            授業一覧
+        </span>
+    </div>
+    <div class="main-container-index">
+        <%  @courses.each do |course| %>
+            <div class="course-information">
+                <div class="course-description">
+                    <img src=<%= "../../assets/#{course.image_name}"%> alt=<%= course.image_name %>>
+                    <p name="course-name">
+                        <%= link_to(course.name,"/courses/#{course.id}") %> 
+                    </p>
+                    <span name="course-evaluation">
+                        <i class="fa-regular fa-comments"></i> <%= ReviewCourse.where(course_id: course.id).count%>
+                    </span>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</body>
