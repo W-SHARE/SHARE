@@ -42,11 +42,21 @@
             </div>
             <div class="each-description-detail">
                 <p>授業難易度</p>
-                <p><%= @average_of_difficulity.round(2)  %></p>
+                <p>
+                    <% if @average_of_difficulity = "NaN" %>
+                    <% else %>
+                        <%= @average_of_difficulity.round(2)  %>
+                    <% end %>
+                </p>
             </div>
             <div class="each-description-detail">
                 <p>授業の面白さ</p>
-                <p><%= @average_of_fun.round(2) %></p>
+                <p>
+                    <% if @average_of_fun = "NaN" %>
+                    <% else %>
+                    <%= @average_of_fun.round(2) %>
+                    <% end %>
+                </p>
             </div>
             <div class="each-description-detail">
                 <p>単位取得率</p>
@@ -56,25 +66,30 @@
                         <%= @pass_rate.round(2) %> ％
                     <!--#分母が0の時はNo Data都表示させる-->
                     <% else %>   
-                        No Data
                 <% end %>
                 </p>
             </div>
             <div class="each-description-detail">
                 <p>評価の割合</p>
-                <p>試験<%= @course.ratio_exam %>％, 出席<%= @course.ratio_attendance %>％</p>
+                <p>試験<%= @course.ratio_exam %>％, 出席<%= @course.ratio_attendance %>％, 課題<%= @course.ratio_assignment %>％</p>
             </div>
+            <!--
             <div class="each-description-detail">
                 <p>出席の必要性</p>
                 <p><%= @course.necessity_of_attendance %></p>
             </div>
+            -->
             <div class="each-description-detail">
                 <p>レビュー数</p>
                 <p><%= @number_of_reviews %></p>
             </div>
             <div class="each-description-detail">
                 <p>使用教科書</p>
-                <p>電子回路入門</p>
+                <p><%= @textbook %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>シラバス</p>
+                <p><%= link_to("#{@course.name}のシラバス", "https://www.wsl.waseda.jp/syllabus/JAA104.php?pKey=2604023018012022260402301826&pLng=jp") %></p>
             </div>
         </div>
     </div>
