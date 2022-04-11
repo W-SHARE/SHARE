@@ -19,7 +19,8 @@ class ReviewCoursesController < ApplicationController
         fun: params[:fun],
         grade: params[:grade],
         attendance: params[:attendance],
-      free_review: params[:free_review]
+        overall: params[:overall],
+        free_review: params[:free_review]
       )
       #保存された時の処理
       if @review.save

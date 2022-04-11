@@ -18,5 +18,12 @@ class ApplicationController < ActionController::Base
             redirect_to("/")
         end
     end
+    
+    def forbid_guest_user
+        if @current_user.id == 1
+            flash[:notice] = "新規登録が必要です"
+            redirect_to("/")
+        end
+    end
         
 end

@@ -43,7 +43,9 @@
                 </div>
                 <div class="edit-button">
                     <% if @user.id == @current_user.id %>
-                        <%=link_to("編集", "/users/#{@user.id}/edit", {class: ["btn", "btn1"]})%>
+                        <%=link_to("/users/#{@user.id}/edit", {class: ["btn", "btn1"]}) do%>
+                            <span class="fa-solid fa-user-pen"> 編集</span>
+                        <% end%>
                     <% end %>
                 </div>
             </div>

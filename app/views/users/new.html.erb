@@ -27,6 +27,11 @@
                         <%= message %>
                     </div>
                 <% end %>
+                <div class="guest_login_button">
+                    <%= link_to( "/guest", {method:"post", class: ["hlist", "btn", "btn1"]}) do %>
+                        <span class="fa-solid fa-arrow-right-to-bracket">  登録しないではじめる</span>
+                    <% end%>
+                </div>
             <%=form_tag("/users/create") do%>
                 <div class="form-content-container">
                     <div class="form-content" name="user-name">

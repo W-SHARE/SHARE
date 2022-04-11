@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_071616) do
+ActiveRecord::Schema.define(version: 2022_04_11_050441) do
 
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -33,5 +33,6 @@ ActiveRecord::Schema.define(version: 2022_04_07_071616) do
     t.string "image_background"
     t.string "syllabus_url"
     t.string "textbook"
+    t.float "average_overall"
   end
 

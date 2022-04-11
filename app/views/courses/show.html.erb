@@ -41,9 +41,18 @@
                 <p><%= @course.professor %></p>
             </div>
             <div class="each-description-detail">
+                <p>総合評価</p>
+                <p>
+                    <% if @average_overall_num - @average_overall_blank == 0 %>
+                    <% else %>
+                        <%= @average_overall.round(2) %>
+                    <% end %>
+                </p>
+            </div>
+            <div class="each-description-detail">
                 <p>授業難易度</p>
                 <p>
-                    <% if @average_of_difficulity = "NaN" %>
+                    <% if @average_of_difficulity_num - @average_of_difficulity_blank == 0  %>
                     <% else %>
                         <%= @average_of_difficulity.round(2)  %>
                     <% end %>
@@ -52,7 +61,7 @@
             <div class="each-description-detail">
                 <p>授業の面白さ</p>
                 <p>
-                    <% if @average_of_fun = "NaN" %>
+                    <% if @average_of_fun_num - @average_of_fun_blank == 0  %>
                     <% else %>
                     <%= @average_of_fun.round(2) %>
                     <% end %>
@@ -61,11 +70,9 @@
             <div class="each-description-detail">
                 <p>単位取得率</p>
                 <p>
-                    <!--#分母が0でないときは値を表示させる-->
-                    <% if @pass_rate != -1 %>
-                        <%= @pass_rate.round(2) %> ％
-                    <!--#分母が0の時はNo Data都表示させる-->
+                    <% if @pass_rate_num - @pass_rate_blank == 0 %>
                     <% else %>   
+                        <%= @pass_rate.round(2) %> ％
                 <% end %>
                 </p>
             </div>
@@ -95,7 +102,9 @@
     </div>
 </div>
 <div class="review-button-detail">
-    <%= link_to("#{@course.name}をレビュー", "/review_courses/#{params[:course_id]}/new", {class: ["btn"]}) %>
+    <%= link_to( "/review_courses/#{params[:course_id]}/new", {class: ["btn"]}) do %>
+        <span class="fa-solid fa-comments"> <%= "#{@course.name}"%>をレビュー</span>
+    <% end%>
 </div>
 <div class="review-container-detail">
     <p class="main-review-title-detail">口コミ一覧</p>
@@ -104,7 +113,7 @@
             <div class="review-title-detail">
                 <i class="fa-solid fa-circle-user"></i>
                 <span><%=  review.user_name %></span>
-                <span>★★☆☆☆</span>
+                <span><%= review.overall %></span>
             </div>
             <div class="review-description-detail">
                 <div class="each-review-detail">
