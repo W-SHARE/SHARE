@@ -9,26 +9,18 @@
 require "csv"
 
 CSV.foreach('db/course.csv') do |info|
-    Course.create(:name => info[0],
-        :class_period_day_of_week => info[1],
-        :class_period_timetable => info[2])
+    Course.create(
+        :name => info[0],
+        :classification => info[1],
+        :class_period_day_of_week => info[2],
+        :class_period_timetable => info[3],
+        :credit => info[4],
+        :professor => info[5],
+        :ratio_exam => info[6],
+        :ratio_attendance => info[7],
+        :ratio_assignment => info[8],
+        :image_professor => info[9],
+        :image_background => info[10],
+        :syllabus_url => info[11],
+        :textbook => info[12]
 end
-
-Lab.create!(
-    name: "吉田研究室",
-    major: "電子エレクトロニクス",
-    core_time_start_hour: 9,
-    core_time_start_min: 00,
-    core_time_end_hour: 18,
-    core_time_end_min: 00,
-    professor: "吉田銀次郎"
-)
-Lab.create!(
-    name: "田中研究室",
-    major: "パワーデバイス",
-    core_time_start_hour: 12,
-    core_time_start_min: 00,
-    core_time_end_hour: 15,
-    core_time_end_min: 00,
-    professor: "田中総"
-)

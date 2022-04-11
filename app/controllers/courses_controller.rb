@@ -35,6 +35,12 @@ class CoursesController < ApplicationController
     @average_overall_blank = ReviewCourse.where(course_id: params[:course_id], overall: nil).count
     @average_overall = @average_overall_sum/(@average_overall_num - @average_overall_blank).to_f
 
+    # course テーブルにデータを入力
+    @course.average_difficulity = @average_of_difficulity
+    @course.average_fun = @average_of_fun
+    @course.pass_rate = @pass_rate
+    @course.number_of_reviews = @number_of_reviews
+
   end
 
   #　授業一覧ページを表示するための関数
