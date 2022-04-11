@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_11_050441) do
+ActiveRecord::Schema.define(version: 2022_04_11_174814) do
 
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "classification"
+    t.string "classification_1"
     t.string "class_period_day_of_week"
     t.integer "class_period_timetable"
     t.integer "credit"
@@ -34,5 +34,11 @@ ActiveRecord::Schema.define(version: 2022_04_11_050441) do
     t.string "syllabus_url"
     t.string "textbook"
     t.float "average_overall"
+    t.string "classification_2"
+    t.string "school_grade"
+    t.string "class_period_semester"
+    t.string "image_icon"
+    t.string "classroom"
+    t.string "campus"
   end
 

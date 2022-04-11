@@ -26,11 +26,15 @@
             </div>
             <div class="each-description-detail">
                 <p>科目区分</p>
-                <p><%= @course.classification %></p>
+                <p><%= @course.classification_1 %>, <%= @course.classification_2 %></p>
             </div>
             <div class="each-description-detail">
                 <p>授業日時</p>
-                <p><%= @course.class_period_day_of_week %>曜日<%= @course.class_period_timetable %>時限目</p>
+                <p><%= @course.class_period_semester %>, <%= @course.class_period_day_of_week %>曜日, <%= @course.class_period_timetable %>時限目</p>
+            </div>
+            <div class="each-description-detail">
+            <p>教室</p>
+                <p><%= @course.campus %>キャンパス, <%= @course.classroom %></p>
             </div>
             <div class="each-description-detail">
                 <p>単位</p>
@@ -78,7 +82,7 @@
             </div>
             <div class="each-description-detail">
                 <p>評価の割合</p>
-                <p>試験<%= @course.ratio_exam %>％, 出席<%= @course.ratio_attendance %>％, 課題<%= @course.ratio_assignment %>％</p>
+                <p>試験<%= @course.ratio_exam %>％, 平常点<%= @course.ratio_attendance %>％, 課題<%= @course.ratio_assignment %>％</p>
             </div>
             <!--
             <div class="each-description-detail">
