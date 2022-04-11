@@ -1,4 +1,5 @@
 class RequestsController < ApplicationController
+  before_action :authenticate_user
 
   #　ご要望を入力するページを表示するための関数
   def new

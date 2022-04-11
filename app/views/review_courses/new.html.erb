@@ -22,11 +22,13 @@
     <%= form_tag("/review_courses/#{params[:course_id]}/create") do %>
         <div class="main-container">
             <div class="form-container">
-            <% @review.errors.full_messages.each do |message| %>
-                <div class="error-message">
-                    <%= message %>
+                <div class="error-message-container">
+                    <% @review.errors.full_messages.each do |message| %>
+                        <div class="error-message">
+                            <%= message %>
+                        </div>
+                    <% end %>
                 </div>
-            <% end %>
                 <div class="form-content" name="username">
                     <label for="username">お名前</label>
                     <input type="text" id="username" name="user_name" placeholder="&#xf007; 入力例：早稲田花子" style="padding: 10px;" style="padding: 10px;" value=<%= @review.user_name %>>
@@ -64,14 +66,16 @@
                 <div class="form-content" name="grade">
                     <label for="grade">成績</label>
                     <div class="radio">
-                        <input type="radio"  value="5" id="q3-4" name="grade">
+                        <input type="radio"  value="4" id="q3-4" name="grade">
                         <label for="q3-4">A+</label>
-                        <input type="radio"  value="4" id="q3-3" name="grade">
+                        <input type="radio"  value="3" id="q3-3" name="grade">
                         <label for="q3-3">A</label>
-                        <input type="radio"  value="3" id="q3-2" name="grade">
+                        <input type="radio"  value="2" id="q3-2" name="grade">
                         <label for="q3-2">B</label>
-                        <input type="radio"  value="2" id="q3-1" name="grade">
+                        <input type="radio"  value="1" id="q3-1" name="grade">
                         <label for="q3-1">C</label>
+                        <input type="radio"  value="0" id="q3-5" name="grade">
+                        <label for="q3-5">F</label>
                     </div>
                 </div>
                 <div class="form-content" name="attendance">
@@ -81,6 +85,21 @@
                         <label for="q4-1">必要</label>
                         <input type="radio"  value="不要" id="q4-2" name="attendance">
                         <label for="q4-2">不要</label>
+                    </div>
+                </div>
+                <div class="form-content" name="overall">
+                    <label for="overall">成績</label>
+                    <div class="radio">
+                        <input type="radio"  value="5" id="q5-5" name="overall">
+                        <label for="q5-5">5点</label>
+                        <input type="radio"  value="4" id="q5-4" name="overall">
+                        <label for="q5-4">4点</label>
+                        <input type="radio"  value="3" id="q5-3" name="overall">
+                        <label for="q5-3">3点</label>
+                        <input type="radio"  value="2" id="q5-2" name="overall">
+                        <label for="q5-2">2点</label>
+                        <input type="radio"  value="1" id="q5-1" name="overall">
+                        <label for="q5-1">1点</label>
                     </div>
                 </div>
                 <div class="form-content" name="free-review">

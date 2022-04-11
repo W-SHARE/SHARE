@@ -6,44 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Lab.create!(
-    name: "吉田研究室",
-    major: "電子エレクトロニクス",
-    core_time_start_hour: 9,
-    core_time_start_min: 00,
-    core_time_end_hour: 18,
-    core_time_end_min: 00,
-    professor: "吉田銀次郎"
-)
-Lab.create!(
-    name: "田中研究室",
-    major: "パワーデバイス",
-    core_time_start_hour: 12,
-    core_time_start_min: 00,
-    core_time_end_hour: 15,
-    core_time_end_min: 00,
-    professor: "田中総"
-)
+require "csv"
 
-Course.create!(
-    name: "量子力学A",
-    classification: "必修",
-    class_period_day_of_week: "火",
-    class_period_timetable: 2,
-    credit: 2,
-    professor: "山中由也",
-    ratio_exam: 7,
-    ratio_attendance: 3,
-    necessity_of_attendance: "必要"
-)
-Course.create!(
-    name: "電磁気学A",
-    classification: "必修",
-    class_period_day_of_week: "木",
-    class_period_timetable: 3,
-    credit: 2,
-    professor: "川西哲也",
-    ratio_exam: 10,
-    ratio_attendance: 0,
-    necessity_of_attendance: "不要"
-)
+CSV.foreach('db/course.csv') do |info|
+    Course.create(
+        :name => info[0],
+        :classification_1 => info[1],
+        :classification_2 => info[2],
+        :class_period_semester => info[3],
+        :class_period_day_of_week => info[4],
+        :class_period_timetable => info[5],
+        :credit => info[6],
+        :professor => info[7],
+        :ratio_exam => info[8],
+        :ratio_attendance => info[9],
+        :ratio_assignment => info[10],
+        :image_professor => info[11],
+        :image_background => info[12],
+        :image_icon => info[13],
+        :syllabus_url => info[14],
+        :textbook => info[15]
+        :classroom => info[16],
+        :campus => info[17],
+end

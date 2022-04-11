@@ -10,75 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_03_112536) do
+ActiveRecord::Schema.define(version: 2022_04_11_174814) do
 
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.string "classification"
+    t.string "classification_1"
     t.string "class_period_day_of_week"
     t.integer "class_period_timetable"
     t.integer "credit"
     t.string "professor"
-    t.float "difficulity"
-    t.float "fun"
+    t.float "average_difficulity"
+    t.float "average_fun"
     t.float "pass_rate"
     t.integer "ratio_exam"
     t.integer "ratio_attendance"
     t.string "necessity_of_attendance"
     t.integer "number_of_reviews"
-    t.string "image_name"
+    t.string "image_professor"
+    t.integer "ratio_assignment"
+    t.string "image_background"
+    t.string "syllabus_url"
+    t.string "textbook"
+    t.float "average_overall"
+    t.string "classification_2"
+    t.string "school_grade"
+    t.string "class_period_semester"
+    t.string "image_icon"
+    t.string "classroom"
+    t.string "campus"
   end
 
-  create_table "labs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "classification"
-    t.string "major"
-    t.integer "core_time_start_hour"
-    t.integer "core_time_start_min"
-    t.integer "core_time_end_hour"
-    t.integer "core_time_end_min"
-    t.string "professor"
-    t.float "difficulity"
-    t.float "fun"
-    t.integer "number_of_reviews"
-    t.string "image_name"
-  end
-
-  create_table "requests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.text "content"
-    t.string "user_name"
-    t.string "email"
-  end
-
-  create_table "review_courses", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "user_name"
-    t.integer "course_id"
-    t.integer "difficulity"
-    t.integer "fun"
-    t.integer "grade"
-    t.string "attendance"
-    t.text "free_review"
-  end
-
-  create_table "review_labs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "user_name"
-    t.integer "lab_id"
-    t.integer "difficulity"
-    t.integer "fun"
-    t.text "free_review"
-    t.string "core_time_start"
-    t.string "core_time_end"
-  end
-
-end

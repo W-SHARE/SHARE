@@ -1,4 +1,5 @@
 class ReviewCoursesController < ApplicationController
+  before_action :authenticate_user
 
   #対応授業をレビューする画面を表示するための関数
     def new
@@ -18,16 +19,21 @@ class ReviewCoursesController < ApplicationController
         fun: params[:fun],
         grade: params[:grade],
         attendance: params[:attendance],
-      free_review: params[:free_review]
+        overall: params[:overall],
+        free_review: params[:free_review]
       )
-    
       #保存された時の処理
       if @review.save
+        @course = Course.find_by(id: params[:course_id]) 
+        @course.average_difficulity = ReviewCourse.where(course_id: params[:course_id]).all.sum(:difficulity)/(ReviewCourse.where(course_id: params[:course_id]).count-ReviewCourse.where(course_id: params[:course_id], difficulity: nil).count).to_f
+        @course.average_fun = ReviewCourse.where(course_id: params[:course_id]).all.sum(:fun)/(ReviewCourse.where(course_id: params[:course_id]).count-ReviewCourse.where(course_id: params[:course_id], fun: nil).count).to_f
+        @course.pass_rate = (ReviewCourse.where(course_id: params[:course_id]).count-ReviewCourse.where(course_id: params[:course_id], grade: 0).count)/ReviewCourse.where(course_id: params[:course_id]).count.to_f*100
+        #　対応する授業に関するレビュー総数を算出して代入
+        @course.number_of_reviews = ReviewCourse.where(course_id: params[:course_id]).count
         #授業詳細ページにリダイレクト
         redirect_to("/courses/#{params[:course_id]}")
         #一時的なメッセージを表示
         flash[:notice] = "評価が投稿されました"
-
         #保存できなかった時の処理
       else
         #入力ページに戻す

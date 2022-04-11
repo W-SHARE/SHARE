@@ -1,6 +1,8 @@
 // Place all the styles related to the courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 .title{
     padding: 54px 0px 15.5px 160px;
     font-weight: 800;
@@ -29,4 +31,89 @@ span[name="subtitle"]{
     padding: 17px 0 32px 0;
     font-weight: 400;
     font-size: 24px;
+}
+.main-container-detail{
+    display: flex;
+    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+}
+.description-title-detail{
+    display: flex;
+    justify-content: center;
+    padding: 30px 30px 0 30px;
+    height: 23%;
+    align-items: center;
+}
+.description-container-detail{
+    width: 60%;
+}
+img[name="detail-image"]{
+    width: 40%;
+    margin: 30px 50px 30px 50px;
+}
+img[name="professor-img"]{
+    height: 80%;
+}
+span[name="title-name"]{
+    font-size: 70px;margin-right: 45px;
+    font-family: fantasy;
+}
+p[name="description-title"]{
+    font-size: 30px;
+    border-bottom: solid 2px;
+    border-color: grey;
+}
+.each-description-detail{
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px;
+    border-color: antiquewhite;
+    margin: 0 40px;
+}
+.main-review-title-detail{
+    font-size: 40px;
+    margin: 0 50px;
+    border-bottom: solid 2px;
+    border-color: grey;
+    padding: 0 40px;
+}
+.review-detail{
+    border: solid 1px;
+    border-color: grey;
+    margin: 25px 100px 25px 100px;
+}
+.review-title-detail{
+    border-bottom: solid 1px;
+    border-color: grey;
+    margin: 0 20px;
+    padding: 5px 40px;
+    display: flex;
+    align-items: center;
+}
+.review-title-detail span{
+    margin-left: 30px;
+    font-size: 30px;
+}
+.review-title-detail i{
+    font-size: 70px;
+}
+.each-review-detail{
+    margin: 5px 40px;
+    border-bottom: solid 1px;
+    border-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+}
+p[name="free-review"]{
+    margin-top: 20px;
+    font-size: 15px;
+}
+.review-container-detail{
+    font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+}
+.review-button-detail{
+    font-size: 30px;
+    text-align: center;
+    margin: 20px 0px;
 }
