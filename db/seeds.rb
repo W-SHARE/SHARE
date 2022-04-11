@@ -11,16 +11,21 @@ require "csv"
 CSV.foreach('db/course.csv') do |info|
     Course.create(
         :name => info[0],
-        :classification => info[1],
-        :class_period_day_of_week => info[2],
-        :class_period_timetable => info[3],
-        :credit => info[4],
-        :professor => info[5],
-        :ratio_exam => info[6],
-        :ratio_attendance => info[7],
-        :ratio_assignment => info[8],
-        :image_professor => info[9],
-        :image_background => info[10],
-        :syllabus_url => info[11],
-        :textbook => info[12]
+        :classification_1 => info[1],
+        :classification_2 => info[2],
+        :class_period_semester => info[3],
+        :class_period_day_of_week => info[4],
+        :class_period_timetable => info[5],
+        :credit => info[6],
+        :professor => info[7],
+        :ratio_exam => info[8],
+        :ratio_attendance => info[9],
+        :ratio_assignment => info[10],
+        :image_professor => info[11],
+        :image_background => info[12],
+        :image_icon => info[13],
+        :syllabus_url => info[14],
+        :textbook => info[15]
+        :classroom => info[16],
+        :campus => info[17],
 end
