@@ -25,7 +25,8 @@ CSV.foreach('db/course.csv') do |info|
         :image_background => info[12],
         :image_icon => info[13],
         :syllabus_url => info[14],
-        :textbook => info[15]
+        :textbook => info[15],
         :classroom => info[16],
-        :campus => info[17],
+        :campus => info[17]
+    )
 end

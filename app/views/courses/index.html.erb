@@ -22,7 +22,7 @@
         <%  @courses.each do |course| %>
             <div class="course-information">
                 <div class="course-description">
-                    <img src=<%= "../../assets/#{course.image_professor}"%> alt=<%= course.image_professor %>>
+                    <img src=<%= "../../assets/images/icon_images/#{course.image_icon}"%> alt=<%= course.image_icon %>>
                     <p name="course-name">
                         <%= link_to(course.name,"/courses/#{course.id}") %> 
                     </p>
