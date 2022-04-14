@@ -3,7 +3,6 @@ class CoursesController < ApplicationController
 
 # 各授業ページを表示するための関数  
   def show
-    #　対応する授業の情報を @course に代入
     @course = Course.find_by(id: params[:course_id])
     #　対応する授業のレビューを @reviews に代入
     @reviews=ReviewCourse.where(course_id: params[:course_id]).all.order(created_at: :desc)
@@ -35,12 +34,14 @@ class CoursesController < ApplicationController
     @average_overall_blank = ReviewCourse.where(course_id: params[:course_id], overall: nil).count
     @average_overall = @average_overall_sum/(@average_overall_num - @average_overall_blank).to_f
 
-    # course テーブルにデータを入力
-    @course.average_difficulity = @average_of_difficulity
-    @course.average_fun = @average_of_fun
-    @course.pass_rate = @pass_rate
-    @course.number_of_reviews = @number_of_reviews
-
+    #　対応する授業の情報を @course に代入
+    Course.where(id: params[:course_id]).update(
+      average_difficulity: @average_of_difficulity,
+      average_fun: @average_of_fun,
+      pass_rate: @pass_rate,
+      number_of_reviews: @number_of_reviews,
+      average_overall: @average_overall
+    )
   end
 
   #　授業一覧ページを表示するための関数
