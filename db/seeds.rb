@@ -28,6 +28,8 @@ CSV.foreach('db/course.csv', headers: true) do |row|
         syllabus_url: row["syllabus_url"],
         textbook: row["textbook"],
         classroom: row["classroom"],
-        campus: row["campus"]
+        campus: row["campus"],
+        school: row["school"],
+        department: row["department"]
     )
 end
