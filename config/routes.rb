@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # get "labs/index" => "labs#index"
   get 'requests/new'
   root "home#top"
-  get "about" => "home#about"
+  # get "about" => "home#about"
   get 'courses/:course_id' => "courses#show"
   # get 'labs/:lab_id' => "labs#show"
   # get 'review_labs/:lab_id/new' => "review_labs#new"
