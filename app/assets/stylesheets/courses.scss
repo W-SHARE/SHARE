@@ -45,6 +45,7 @@ span[name="subtitle"]{
 }
 .description-container-detail{
     width: 60%;
+    height: 100%;
 }
 img[name="detail-image"]{
     width: 40%;
@@ -93,10 +94,9 @@ p[name="description-title"]{
 .review-title-detail span{
     margin-left: 30px;
     font-size: 30px;
+    margin-right: 30px;
 }
-.review-title-detail i{
-    font-size: 70px;
-}
+
 .each-review-detail{
     margin: 5px 40px;
     border-bottom: solid 1px;
@@ -116,4 +116,23 @@ p[name="free-review"]{
     font-size: 30px;
     text-align: center;
     margin: 20px 0px;
+}
+.each-description-detail p[name="content"]{
+    margin: 0 0 0 100px;
+}
+.fa-star{
+    font-size: 40px;
+    color: #f0e68c;
+}
+.fa-circle-user{
+    font-size: 70px;
+    color: grey;
+}
+.fa-comment[name="index"]{
+    font-size: 17px;
+    color: grey;
+}
+.fa-star[name="index"]{
+    font-size: 20px;
+    color: #f0e68c;
 }

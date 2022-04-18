@@ -8,24 +8,28 @@
 
 require "csv"
 
-CSV.foreach('db/course.csv') do |info|
+CSV.foreach('db/course.csv', headers: true) do |row|
     Course.create(
-        :name => info[0],
-        :classification_1 => info[1],
-        :classification_2 => info[2],
-        :class_period_semester => info[3],
-        :class_period_day_of_week => info[4],
-        :class_period_timetable => info[5],
-        :credit => info[6],
-        :professor => info[7],
-        :ratio_exam => info[8],
-        :ratio_attendance => info[9],
-        :ratio_assignment => info[10],
-        :image_professor => info[11],
-        :image_background => info[12],
-        :image_icon => info[13],
-        :syllabus_url => info[14],
-        :textbook => info[15]
-        :classroom => info[16],
-        :campus => info[17],
+        name: row["name"],
+        classification_1: row["classification_1"],
+        classification_2: row["classification_2"],
+        school_grade: row["school_grade"],
+        class_period_semester: row["class_period_semester"],
+        class_period_day_of_week: row["class_period_day_of_week"],
+        class_period_timetable: row["class_period_timetable"],
+        credit: row["credit"],
+        professor: row["professor"],
+        ratio_exam: row["ratio_exam"],
+        ratio_attendance: row["ratio_attendance"],
+        ratio_assignment: row["ratio_assignment"],
+        image_professor: row["image_professor"],
+        image_background: row["image_background"],
+        image_icon: row["image_icon"],
+        syllabus_url: row["syllabus_url"],
+        textbook: row["textbook"],
+        classroom: row["classroom"],
+        campus: row["campus"],
+        school: row["school"],
+        department: row["department"]
+    )
 end

@@ -12,41 +12,41 @@
 </header>
 
 <div class="main-container-detail">
-    <img name="detail-image" src="../../assets/kairoriron.jpeg" alt="">
+    <img name="detail-image" src=<%= "../../assets/background_images/#{@course.image_background}"%> alt=<%= @course.image_background %>>
     <div class="description-container-detail">
         <div class="description-title-detail">
             <span name="title-name"><%= @course.name %></span>
-            <img name="professor-img" src="../../assets/hiroshi-kawarada.jpg" alt="">
+            <img name="professor-img" src = <%= "../../assets/professor_images/#{@course.image_professor}"%> alt=<%= @course.image_professor %>>
         </div>
         <div class="description-detail">
             <p name="description-title">授業情報</p>
             <div class="each-description-detail">
                 <p>講義名</p>
-                <p><%= @course.name %></p>
+                <p name="content"><%= @course.name %></p>
             </div>
             <div class="each-description-detail">
-                <p>科目区分</p>
-                <p><%= @course.classification_1 %>, <%= @course.classification_2 %></p>
+                <p>科目区分　　　</p>
+                <p name="content"><%= @course.school %>学部,<%= @course.department %>学科,<%= @course.classification_1 %><%= @course.classification_2 %></p>
             </div>
             <div class="each-description-detail">
                 <p>授業日時</p>
-                <p><%= @course.class_period_semester %>, <%= @course.class_period_day_of_week %>曜日, <%= @course.class_period_timetable %>時限目</p>
+                <p name="content"><%= @course.class_period_semester %>, <%= @course.class_period_day_of_week %>曜日, <%= @course.class_period_timetable %>時限目</p>
             </div>
             <div class="each-description-detail">
-            <p>教室</p>
-                <p><%= @course.campus %>キャンパス, <%= @course.classroom %></p>
+                <p>教室　　　</p>
+                <p name="content"><%= @course.campus %>キャンパス, <%= @course.classroom %></p>
             </div>
             <div class="each-description-detail">
                 <p>単位</p>
-                <p><%= @course.credit %></p>
+                <p name="content"><%= @course.credit %></p>
             </div>
             <div class="each-description-detail">
-                <p>教授</p>
-                <p><%= @course.professor %></p>
+                <p>教授　　　</p>
+                <p name="content"><%= @course.professor %></p>
             </div>
             <div class="each-description-detail">
                 <p>総合評価</p>
-                <p>
+                <p name="content">
                     <% if @average_overall_num - @average_overall_blank == 0 %>
                     <% else %>
                         <%= @average_overall.round(2) %>
@@ -55,7 +55,7 @@
             </div>
             <div class="each-description-detail">
                 <p>授業難易度</p>
-                <p>
+                <p name="content">
                     <% if @average_of_difficulity_num - @average_of_difficulity_blank == 0  %>
                     <% else %>
                         <%= @average_of_difficulity.round(2)  %>
@@ -64,7 +64,7 @@
             </div>
             <div class="each-description-detail">
                 <p>授業の面白さ</p>
-                <p>
+                <p name="content">
                     <% if @average_of_fun_num - @average_of_fun_blank == 0  %>
                     <% else %>
                     <%= @average_of_fun.round(2) %>
@@ -73,7 +73,7 @@
             </div>
             <div class="each-description-detail">
                 <p>単位取得率</p>
-                <p>
+                <p name="content">
                     <% if @pass_rate_num - @pass_rate_blank == 0 %>
                     <% else %>   
                         <%= @pass_rate.round(2) %> ％
@@ -82,7 +82,7 @@
             </div>
             <div class="each-description-detail">
                 <p>評価の割合</p>
-                <p>試験<%= @course.ratio_exam %>％, 平常点<%= @course.ratio_attendance %>％, 課題<%= @course.ratio_assignment %>％</p>
+                <p name="content">試験<%= @course.ratio_exam %>％, 平常点<%= @course.ratio_attendance %>％, 課題<%= @course.ratio_assignment %>％</p>
             </div>
             <!--
             <div class="each-description-detail">
@@ -92,15 +92,15 @@
             -->
             <div class="each-description-detail">
                 <p>レビュー数</p>
-                <p><%= @number_of_reviews %></p>
+                <p name="content"><%= @number_of_reviews %></p>
             </div>
             <div class="each-description-detail">
                 <p>使用教科書</p>
-                <p><%= @textbook %></p>
+                <p name="content"><%= @course.textbook %></p>
             </div>
             <div class="each-description-detail">
                 <p>シラバス</p>
-                <p><%= link_to("#{@course.name}のシラバス", "https://www.wsl.waseda.jp/syllabus/JAA104.php?pKey=2604023018012022260402301826&pLng=jp") %></p>
+                <p name="content"><%= link_to("#{@course.name}のシラバス", @course.syllabus_url) %></p>
             </div>
         </div>
     </div>
@@ -117,7 +117,39 @@
             <div class="review-title-detail">
                 <i class="fa-solid fa-circle-user"></i>
                 <span><%=  review.user_name %></span>
-                <span><%= review.overall %></span>
+                <span>
+                    <% if review.overall == 5 %>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    <% elsif review.overall == 4 %>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    <% elsif review.overall == 3 %>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    <% elsif review.overall == 2 %>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    <% elsif review.overall == 1 %>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    <% end %>
+                </span>
             </div>
             <div class="review-description-detail">
                 <div class="each-review-detail">

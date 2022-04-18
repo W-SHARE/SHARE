@@ -22,12 +22,44 @@
         <%  @courses.each do |course| %>
             <div class="course-information">
                 <div class="course-description">
-                    <img src=<%= "../../assets/#{course.image_professor}"%> alt=<%= course.image_professor %>>
+                    <img src=<%= "../../assets/icon_images/#{course.image_icon}"%> alt=<%= course.image_icon %>>
                     <p name="course-name">
                         <%= link_to(course.name,"/courses/#{course.id}") %> 
                     </p>
                     <span name="course-evaluation">
-                        <i class="fa-regular fa-comments"></i> <%= ReviewCourse.where(course_id: course.id).count%>
+                        <% if course.average_overall == nil %>
+                            <i class="fa-regular fa-comment" name="index">レビューがありません</i> 
+                        <% elsif course.average_overall > 4 %>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                        <% elsif  course.average_overall > 3 %>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                        <% elsif  course.average_overall > 2 %>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                        <% elsif  course.average_overall > 1 %>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                        <% else%>
+                            <i class="fa-solid fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                            <i class="fa-regular fa-star" name="index"></i>
+                        <% end %>
                     </span>
                 </div>
             </div>

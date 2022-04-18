@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_11_174814) do
+ActiveRecord::Schema.define(version: 2022_04_16_173208) do
 
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -40,5 +40,7 @@ ActiveRecord::Schema.define(version: 2022_04_11_174814) do
     t.string "image_icon"
     t.string "classroom"
     t.string "campus"
+    t.string "school"
+    t.string "department"
   end
 
