@@ -1,16 +1,8 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.title-top{
-    color: white;/*文字は白に*/
-    opacity:0.8;
-    font-size: 45px;
-    text-shadow:
-    1px 0 0 rgb(33, 59, 209),
-    0 1px 0 rgb(33, 59, 209),
-    -1px 0 0 rgb(33, 59, 209),
-    0 -1px 0 rgb(33, 59, 209);/**文字の枠線を出すためにtext-shadowを上下左右に出している*/
-}
+
+
 .body1 {/*親div*/
     position: relative;/*相対配置*/
 }
@@ -22,13 +14,10 @@
 .btn {
     border: 2px solid #4797af;
     color:white;
-    //text-align: center;
-    //vertical-align: middle;
     padding:10px 20px;
     border-radius: 30px;
     background-color: rgba(66, 157, 180,0.7);
     width:150px;
-    //font-size: 16px;
     font-family:'Noto Sans JP',serif ;
 }
 .btn:hover{
@@ -47,15 +36,15 @@
 .small_container{
     float:left;
     height: 320px;
-    background: #C4C4C4;
+    background:	rgb(174, 220, 236);
     width:25%;
     margin-left: 30px;/**左の2行はブロックを等間隔で並べるためのもの*/
     margin-right: 30px;
     border-radius: 20px;
 }
 .small_container:hover{/**div要素全体もhoverの設定ができる！！*/
-    background-color:#a8a6a6 ;
-    transition-duration: 0.2s;
+    background-color:#e2e2e2 ;
+    transition-duration: 0.5s;
 }
 .imagecenter{/**画像をうまく中央に置くためのCSS*/
     text-align: center;
@@ -71,7 +60,7 @@
     font-weight: bold;
 }
 .big_container a{
-    color:black;
+    color:rgb(24, 58, 90);
 }
 .big_container a:hover{
     font-size: 22px;
@@ -111,17 +100,19 @@
     font-weight:bold;
 }
 
-/*西ノ原 top.html 用*/
 .img-description{
-    position: absolute;/*絶対配置*/
+    font-weight: 200;
+    color: 	white;
+    position: absolute;
     top: 0px;
     left: 0px;
-    padding: 100px 0 0 20px;
-    text-align: center;
+    padding: 40px 0 0 50px;
+    font-size: 40px;
     font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
 }
-.img-link-container{
-    padding-top: 30px;
-    display: flex;
-    justify-content: space-evenly;
+.img-description:after {
+	content: "";
+	display: block;
+	height: 4px;
+	background: linear-gradient(to right, #86f8a3, transparent);
 }
