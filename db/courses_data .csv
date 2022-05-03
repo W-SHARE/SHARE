@@ -1,0 +1,2 @@
+id integer,name string,classification string,class_period_day_of_week string,class_period_timetable integer（何時限目か）,credit integer(単位),professor string,ratio_exam integer,ratio_attendance integer,ratio_assignment integer,image_professor string,image_background string,syllabus_url string,textbook string
+1,電磁気学,必修,水,2,2,宇高勝之,100,0,0,udaka.jepg,denjiki.jpeg,https://www.wsl.waseda.jp/syllabus/JAA104.php?pKey=2604023018012022260402301826&pLng=jp,電子回路入門
