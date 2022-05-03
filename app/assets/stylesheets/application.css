@@ -36,32 +36,28 @@ a{
 /**ここから本文のCSS*/
 .header{
     background-color:rgba(174,221,236,0.61);
-    height:60px;
+    display: flex;
+    justify-content: right;
 }
 .header-logo{
     width:116px;
     height:60px;
     padding-left: 50px;
+    position: absolute;
+    left: 0px;
 }
 .header-logo:hover{
     transform: scale(1.2,1.2);/**ホバー時に画像を拡大する。縦横それぞれ1.2倍という意味*/
     overflow: hidden;/**拡大したときに枠からはみ出た分を非表示にするコード*/
     transition-duration: 0.3s;/*拡大されるのにかかる時間を設定している*/
 }
-.header-list{
-    float:right;
-    padding-right: 150px;
-    text-align:center;/**文字をブロックの横方向の中央に配置するためのコード*/
-    vertical-align: middle;/**文字を縦方向の中央に配置するためのコード*/
-}
+
 .hlist{
     line-height:60px;
-    margin-left:80px;
-    width:130px;
-    height:30px;
-    font-family: 'Noto Sans JP',serif;/**フォントは一つだとブラウザが対応していない場合に表示されなくなってしまうから最低でも2つは必要。
-    serif(明朝体)かsans-serif(ゴシック体)を最後に入れるべき！！*/
-    font-weight: bold;
+    padding: 0 40px;
+    font-family: sans-serif;
+    border-left: solid 1px;
+    border-color: antiquewhite;
 }
 .hlist:hover{
     opacity:0.7;
@@ -97,4 +93,17 @@ a{
 .flash {
     font-size: larger;
     color: red;
+}
+.flash{
+    font-size: 30px;
+    background-color: #FFCC99;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    color: grey;
+}
+.inner-description{
+    font-size: 12px;
+    color: grey;
+    margin-top: 15px;
 }

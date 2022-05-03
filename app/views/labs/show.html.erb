@@ -1,43 +1,87 @@
 <!--#研究室の詳細情報を表示させる処理-->
-<div>
-    研究室名：
-    <%= @lab.name %>
-    <br>
-    研究内容
-    <%= @lab.major %>
-    <br>
-    コアタイム
-    <%= @lab.core_time_start_hour %>：<%= @lab.core_time_start_min %>～<%= @lab.core_time_end_hour %>：<%= @lab.core_time_end_min %>
-    <br>
-    教授：
-    <%= @lab.professor %>
-    <br>
-    研究室難易度：
-    <%= @average_of_difficulity.round(2) %>
-    <br>
-    研究室の面白さ：
-    <%= @average_of_fun.round(2) %>
-    <br>
-    レビュー数：
-    <%= @number_of_reviews %>
-    
-<div>
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="・・・">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>お問い合わせ</title>
+    <script src="https://kit.fontawesome.com/701f54efca.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+    <link rel="stylesheet" href="detail.css">
+</header>
 
-<!--#レビューページに遷移するためのリンク-->
-<div>
-    <%= link_to("#{@lab.name}をレビュー", "/review_labs/#{@lab.id}/new") %>
+<div class="main-container-detail">
+    <img name="detail-image" src="../../assets/kairoriron.jpeg" alt="">
+    <div class="description-container-detail">
+        <div class="description-title-detail">
+            <span name="title-name"><%= @lab.name %></span>
+            <img name="professor-img" src="../../assets/hiroshi-kawarada.jpg" alt="">
+        </div>
+        <div class="description-detail">
+            <p name="description-title">研究室情報</p>
+            <div class="each-description-detail">
+                <p>研究室名</p>
+                <p><%= @lab.name %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>教授</p>
+                <p><%= @lab.professor %></p>
+            </div>
+            <div class="each-description-detail">
+            <p>研究内容</p>
+            <p><%= @lab.major %></p>
+        </div>
+            <div class="each-description-detail">
+                <p>研究室難易度</p>
+                <p><%= @average_of_difficulity.round(2)  %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>研究室の面白さ</p>
+                <p><%= @average_of_fun.round(2) %></p>
+            </div>
+            <div class="each-description-detail">
+            <p>コアタイム</p>
+            <p> ～ </p>
+        </div>
+            <div class="each-description-detail">
+                <p>レビュー数</p>
+                <p><%= @number_of_reviews %></p>
+            </div>
+            <div class="each-description-detail">
+                <p>使用教科書</p>
+                <p>電子回路入門</p>
+            </div>
+        </div>
+    </div>
 </div>
-
-<!--#対応する研究室の全レビューを表示-->
-<div>
+<div class="review-button-detail">
+    <%= link_to("#{@lab.name}をレビュー", "/review_labs/#{params[:lab_id]}/new", {class: ["btn"]}) %>
+</div>
+<div class="review-container-detail">
+    <p class="main-review-title-detail">口コミ一覧</p>
     <%  @reviews.each do |review| %>
-        ユーザー名：<%=  review.user_name %>
-        <br>
-        授業難易度：<%= review.difficulity %>
-        <br>
-        面白さ：<%= review.fun %>
-        <br>
-        レビュー：<%= review.free_review %>
-        <br>
+        <div class="review-detail">
+            <div class="review-title-detail">
+                <i class="fa-solid fa-circle-user"></i>
+                <span><%=  review.user_name %></span>
+                <span>★★☆☆☆</span>
+            </div>
+            <div class="review-description-detail">
+                <div class="each-review-detail">
+                    <p>研究室の難しさ</p>
+                    <p><%= review.difficulity %></p>
+                </div>
+                <div class="each-review-detail">
+                    <p>研究室の面白さ</p>
+                    <p><%= review.fun %></p>
+                </div>
+                <div class="each-review-detail">
+                    <p name="free-review"><%= review.free_review %></p>
+                </div>
+            </div>
+        </div>
     <% end %>
 </div>
+

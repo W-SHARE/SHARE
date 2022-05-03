@@ -1,30 +1,58 @@
-<!--ご要望フォーム-->
-<%= form_tag("/requests/create") do %>
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="・・・">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
+    <title>お問い合わせ</title>
+    <script src="https://kit.fontawesome.com/701f54efca.js" crossorigin="anonymous"></script>
+</header>
 
-    <!--エラーメッセージの表示-->
-    <% @request.errors.full_messages.each do |message| %>
-        <div>
-            <%= message %>
+<body>
+    <div class="title">
+        <div name="title-container">
+            CONTACT
+            <br>
+            <span name="subtitle">
+                お問い合わせ
+            </span>
         </div>
-    <% end %>
-
-    <!--#各値の入力欄-->
-    <div>
-        user_name
-        <textarea name="user_name"><%= @request.user_name %></textarea>
     </div>
 
-    <div>
-        email
-        <textarea name="email"><%= @request.email %></textarea>
+    <div class="main-container">
+        <div class="description">
+            <p>この度は、弊社へのお問い合わせをご検討
+                いただき、ありがとうございます。お問い
+                合わせの際は、右のフォームに必要事項
+                をご入力いただきお送りください。
+            </p>
+        </div>
+        <div class="form-container">
+            <% @request.errors.full_messages.each do |message| %>
+                <div class="error-message">
+                    <%= message %>
+                </div>
+            <% end %>
+            <div class="form-content-container">
+                <%= form_tag("/requests/create") do %>
+                    <div class="form-content" name="user-name">
+                        <label for="username">お名前</label>
+                        <input type="text" id="username" name="user_name" placeholder="&#xf007; 入力例：早稲田花子" style="padding: 10px;" value=<%= @request.user_name %>>
+                    </div>
+                    <div class="form-content" name="email">
+                        <label for="email">メールアドレス</label>
+                        <input type="text" id="email" name="email" placeholder="&#xf0e0; 入力例：wasedahanako@gmail.com" style="padding: 10px;" value=<%= @request.email %>>
+                    </div>
+                    <div class="form-content" name="content">
+                        <label for="content">お問い合わせ内容</label>
+                        <textarea id="content" name="content" type="text" rows="10" cols="60" placeholder="お問い合わせ内容をご入力ください。" style="padding: 10px;"><%= @request.content %></textarea>
+                    </div>
+                    <div class="form-content" name="button">
+                        <input name="submit-button" type="submit" value="&#xf1d8; 送信">
+                    </div> 
+                <% end %>
+            </div>
+        </div>
     </div>
-
-    <div>
-        content
-        <textarea name="content"><%= @request.content %></textarea>
-    </div>
-
-    <!--#送信ボタン-->
-    <input type="submit" value="内容を確定して送信する">
-
-<% end %>
+</body>

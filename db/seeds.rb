@@ -8,27 +8,28 @@
 
 require "csv"
 
-CSV.foreach('db/course.csv') do |info|
-    Course.create(:name => info[0],
-        :class_period_day_of_week => info[1],
-        :class_period_timetable => info[2])
+CSV.foreach('db/course.csv', headers: true) do |row|
+    Course.create(
+        name: row["name"],
+        classification_1: row["classification_1"],
+        classification_2: row["classification_2"],
+        school_grade: row["school_grade"],
+        class_period_semester: row["class_period_semester"],
+        class_period_day_of_week: row["class_period_day_of_week"],
+        class_period_timetable: row["class_period_timetable"],
+        credit: row["credit"],
+        professor: row["professor"],
+        ratio_exam: row["ratio_exam"],
+        ratio_attendance: row["ratio_attendance"],
+        ratio_assignment: row["ratio_assignment"],
+        image_professor: row["image_professor"],
+        image_background: row["image_background"],
+        image_icon: row["image_icon"],
+        syllabus_url: row["syllabus_url"],
+        textbook: row["textbook"],
+        classroom: row["classroom"],
+        campus: row["campus"],
+        school: row["school"],
+        department: row["department"]
+    )
 end
-
-Lab.create!(
-    name: "吉田研究室",
-    major: "電子エレクトロニクス",
-    core_time_start_hour: 9,
-    core_time_start_min: 00,
-    core_time_end_hour: 18,
-    core_time_end_min: 00,
-    professor: "吉田銀次郎"
-)
-Lab.create!(
-    name: "田中研究室",
-    major: "パワーデバイス",
-    core_time_start_hour: 12,
-    core_time_start_min: 00,
-    core_time_end_hour: 15,
-    core_time_end_min: 00,
-    professor: "田中総"
-)
