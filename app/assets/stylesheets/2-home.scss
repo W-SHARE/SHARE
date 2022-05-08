@@ -8,7 +8,6 @@
 }
 .body1 img {
     width: 100%;
-    height: 700px;
     object-fit: cover;
 }
 .btn {
@@ -24,26 +23,19 @@
     opacity:0.8;
 }
 .big_container{
+    padding: 50px 0;
     display: flex;/**この親要素内のブロックをflexitemとする*/
-    flex-direction: row;/**flexitemを横方向に並べる*/
     justify-content: center;/**flexitemを中央に寄せる*/
-    position: absolute;/**これのせいでこの下のブロックが回り込んでしまう。absoluteは高さがなくなるのだ！*/
-    top:720px;
     font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
-    /**overflow: auto;*/
-
 }
 .small_container{
-    float:left;
-    height: 320px;
-    background:	rgb(174, 220, 236);
-    width:25%;
-    margin-left: 30px;/**左の2行はブロックを等間隔で並べるためのもの*/
-    margin-right: 30px;
+    background-color:	rgb(174, 220, 236);
     border-radius: 20px;
+    margin: 20px 15px 70px 15px;
+    padding: 20px 0;
 }
 .small_container:hover{/**div要素全体もhoverの設定ができる！！*/
-    background-color:#e2e2e2 ;
+    background-color: aliceblue;
     transition-duration: 0.5s;
 }
 .imagecenter{/**画像をうまく中央に置くためのCSS*/
@@ -59,9 +51,6 @@
     font-size: 20px;
     font-weight: bold;
 }
-.big_container a{
-    color:rgb(24, 58, 90);
-}
 .big_container a:hover{
     font-size: 22px;
     transition-duration: 0.2s;
@@ -72,34 +61,37 @@
     margin:0 auto;  
     font-weight: bold;
 }
-
 .second-container{
-    clear:right;
-    padding-top: 310px;
     font-family: 'ヒラギノ明朝 Pro W3', 'Hiragino Mincho Pro', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+    display: flex;
+    justify-content: center;
 }
-.robot{
-    width: 45%;
-    float:left;
+.second-container img{
+    width: 50%;
+    object-fit: cover;
 }
 .title2{
-    float:left;
-    position: relative;
-    top:80px;
-    left:100px;
-    font-size: 40px;
-    color:black;
+    font-size: 80px;
+}
+.title2:after {
+	content: "";
+	display: block;
+	height: 4px;
+	background: linear-gradient(to right, #86f8a3, transparent);
 }
 .content2{
-    float:left;
-    width:39%;
-    position:relative;/**relativeは自分が元居た位置からの移動度を設定する。
-    またこの場合は元居た場所に下の要素が詰めるというような現象はおこらない。*/
-    top:100px;
-    left:180px;
-    font-weight:bold;
+    font-size: 25px;
+    width: 80%;
 }
-
+.content2 ul{
+    font-size: 30px;
+    padding: 20px 0;
+    list-style-type: none;
+}
+.second-container-description{
+    width: 50%;
+    padding-left: 30px;
+}
 .img-description{
     font-weight: 200;
     color: 	white;

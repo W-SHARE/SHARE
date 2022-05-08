@@ -11,12 +11,6 @@
 p[name="main-error-massage"]{
     font-family: sans-serif;
 }
-.form-content-container{
-    margin-top: 40px;
-}
-.error-message-container{
-    margin-bottom: 40px;
-}
 .edit-button{
     text-align: center;
     font-size: 25px;
@@ -24,4 +18,9 @@ p[name="main-error-massage"]{
 }
 .guest_login_button{
     text-align: center;
+    margin-top: 15px;
+    border: solid 1px;
+}
+.guest_login_button:hover{
+    background-color: antiquewhite;
 }

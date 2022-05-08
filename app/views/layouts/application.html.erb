@@ -17,27 +17,57 @@
     <div class="header">
       <img class="header-logo" src="../../assets/logo.jpg">
         <%= link_to("トップページ", "/", {class: "hlist"}) %>
-        <!-- <%= link_to("W-SHAREとは？", "/about", {class: "hlist"}) %> -->
-        <% if @current_user %>
-          <!-- ログインしている状態 -->
-            <%= link_to("授業一覧", "/courses/index", {class: "hlist"}) %>
-            <%= link_to("ご要望", "/requests/new", {class: "hlist"}) %>
-            <!-- <%= link_to("研究室一覧", "/labs/index", {class: "hlist"} )%> -->
-            <!-- <%= link_to("ユーザー一覧", "/users/index", {class: "hlist"} )%> -->
-            <%= link_to("ログアウト", "/logout", {method:"post", class: "hlist"}) %>
-            <% if @current_user.id != 1%>
-              <%= link_to("/users/#{@current_user.id}", {class: "hlist"} ) do%>
-                <span class="fa-solid fa-user"></span>
-                <% end%>
-              <% else%>
-              <% end%>
-        <% else %>
-          <!-- ログインしていない状態 -->
-            <%= link_to("新規登録", "/signup", {class: "hlist"} )%>
-            <%= link_to("ログイン", "/login", {class: "hlist"} )%>
-            <!-- <%= link_to("ゲストログイン", "/guest", {method:"post", class: "hlist"})%> -->
+        <% if @current_user %><!-- ログインしている状態 -->
+          <%= link_to("授業一覧", "/courses/index", {class: "hlist"}) %>
+          <%= link_to("ご要望", "/requests/new", {class: "hlist"}) %>
+          <%= link_to("ログアウト", "/logout", {method:"post", class: "hlist"}) %>
+          <% if @current_user.id != 1%>
+            <%= link_to("/users/#{@current_user.id}", {class: "hlist"} ) do%>
+              <span class="fa-solid fa-user"></span>
+          <% end%>
+          <% else%>
+          <% end%>
+        <% else %><!-- ログインしていない状態 -->
+          <%= link_to("新規登録", "/signup", {class: "hlist"} )%>
+          <%= link_to("ログイン", "/login", {class: "hlist"} )%>
         <% end %>
-      </div>
+        <div class="hamburger-menu">
+          <input type="checkbox" id="menu-btn-check">
+          <label for="menu-btn-check" class="menu-btn"><span></span></label>
+          <!--ここからメニュー-->
+          <div class="menu-content">
+              <ul>
+                  <li>
+                    <%= link_to("トップページ", "/") %>
+                  </li>
+                  <% if @current_user %><!-- ログインしている状態 -->
+                    <li>
+                      <%= link_to("授業一覧", "/courses/index") %>
+                    </li>
+                    <li>
+                      <%= link_to("ご要望", "/requests/new") %>
+                    </li>
+                    <li>
+                      <%= link_to("ログアウト", "/logout", {method:"post"}) %>
+                    </li>
+                    <% if @current_user.id != 1%>
+                      <li>
+                        <%= link_to("ユーザー情報","/users/#{@current_user.id}" )%>
+                      </li>
+                    <% else%>
+                    <% end%>
+                  <% else %><!-- ログインしていない状態 -->
+                    <li>
+                      <%= link_to("新規登録", "/signup" )%>
+                    </li>
+                    <li>
+                      <%= link_to("ログイン", "/login" )%>
+                    </li>
+                  <% end %>
+              </ul>
+          </div>
+          <!--ここまでメニュー-->
+        </div>
     </div>
     <!--ヘッダーの下、コンテンツの上に一時的ナメッセージを表示-->
     <% if flash[:notice] %>

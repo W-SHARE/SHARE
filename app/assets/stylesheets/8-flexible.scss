@@ -1,0 +1,85 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media(max-width: 1000px){
+    .big_container{
+        flex-wrap: wrap;
+    }
+    .small_container{
+        width: 50%;
+        margin-bottom: 0px;
+    }
+    .title-top{
+        font-weight: 200;
+        font-size: 20px;
+    }
+    .title2{
+        font-size:50px;
+    }
+    .content2{
+        font-size: 15px;
+    }
+    .content2 ul{
+        font-size: 20px;
+    }
+    .form-container{
+        padding: 10px 30px;
+    }
+    .guest_login_button{
+        margin: 15px 0;
+    }
+}
+@media(max-width: 670px){
+    .title-top{
+        font-weight: 200;
+        font-size: 15px;
+    }
+    .img-description{
+        padding: 20px 0 0 20px;
+    }
+    .small_container{
+        font-size: 12px;
+    }
+    .subtitle{
+        font-size: 15px;
+    }
+    .title2{
+        font-size:40px;
+    }
+    .content2{
+        font-size: 10px;
+    }
+    .content2 ul{
+        font-size: 15px;
+    }
+    .title{
+        font-weight: 800;
+        font-size: 30px;
+        text-align: center;
+    }
+    span[name="subtitle"]{
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .form-content{
+        margin-bottom: 40px;
+        margin-top: 10px;
+    }
+    .form-container{
+        padding: 10px 30px;
+    }
+    label{
+        font-weight: 400;
+        font-size: 18px;
+    }
+    .error-message{
+        font-size: 13px;
+    }
+    .error-message{
+        padding: 0 0 0 0;
+    }
+    .guest_login_button{
+        margin: 20px 0;
+    }
+}
